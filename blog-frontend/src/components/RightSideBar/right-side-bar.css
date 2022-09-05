@@ -1,0 +1,28 @@
+.right-side-bar{
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    top:4vh;
+    right: 0;
+    bottom:0;
+    overflow-y:scroll;
+	overflow-x:hidden;
+    height: auto;
+}
+.right-side-bar::-webkit-scrollbar {
+    display: none;
+  }
+.title-d{
+    text-decoration: underline;
+    font-size: 40px;
+
+}
+.body-d{
+    font-size: 27px;
+}
+.author-d{
+    font-size: 35px;
+}

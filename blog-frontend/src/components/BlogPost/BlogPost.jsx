@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import './blog-post.css'
+import { useContext } from 'react'
+import dataContext from '../../context'
 const BlogPost = () => {
 
   const initialState = {
@@ -8,6 +10,8 @@ const BlogPost = () => {
     body: "",
     author: ""
   }
+const {blogHome,setblogHome}=useContext(dataContext)
+
   const [data, setData] = useState(initialState)
   const [showForm,setShowForm] = useState(false)
   const handleChange = (e) => {
@@ -20,6 +24,10 @@ const BlogPost = () => {
       method: "POST",
       body: JSON.stringify(data)
     })
+    setblogHome(blogs=>[...blogs, data])
+    alert("blog created successfully")
+    console.log(blogHome);
+    setShowForm(false)
   }
   
   return (

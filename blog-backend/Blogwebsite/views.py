@@ -3,11 +3,10 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from Blogwebsite.models import Blog
 from Blogwebsite.serializers import BlogSerializer
+
 @csrf_exempt
 def Blog_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
+  
     if request.method == 'GET':
         Blogs = Blog.objects.all()
         serializer = BlogSerializer(Blogs, many=True)
@@ -23,9 +22,7 @@ def Blog_list(request):
 
 @csrf_exempt
 def Blog_detail(request, pk):
-    """
-    Retrieve, update or delete a code snippet.
-    """
+
     try:
         blog = Blog.objects.get(pk=pk)
     except Blog.DoesNotExist:
